@@ -1,0 +1,20 @@
+[project]
+name = "checkstock"
+version = "1.0.0"
+description = "Где сейчас товар: остатки по ФФ, резерв FBS, товар в пути"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore:The anyio.abc.BlockingPortal alias is deprecated:DeprecationWarning"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+"migrations/versions/*" = ["E501"]  # автогенерированная Alembic-миграция

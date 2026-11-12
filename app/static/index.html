@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CheckStock — где сейчас товар</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232E6B57'/%3E%3Cpath d='M9 12l7-4 7 4v8l-7 4-7-4z' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/app.css">
+  <script type="module" src="/static/app.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="top__brand">
+      <span class="logo" aria-hidden="true"></span>
+      <div>
+        <b>CheckStock</b>
+        <span class="top__sub">Где сейчас товар · <span data-store>магазин</span></span>
+      </div>
+    </div>
+    <div class="top__right">
+      <button class="badge" data-reconcile title="Сверка учёта: остатки сходятся с журналом проводок">Сверка…</button>
+      <div class="menu" data-demo hidden>
+        <button class="btn btn--ghost btn--sm" data-action="toggle-menu">Тестовые данные ▾</button>
+        <div class="menu__list" hidden>
+          <button data-action="reset" data-with-receipt="false">Сбросить к началу — без остатков</button>
+          <button data-action="reset" data-with-receipt="true">Сбросить и провести тестовый приход</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" class="tab is-active" data-tab="stock">Остатки</button>
+    <button role="tab" class="tab" data-tab="ops">Операции <span class="count" data-open-count hidden></span></button>
+    <button role="tab" class="tab" data-tab="warehouses">Склады</button>
+    <button role="tab" class="tab" data-tab="history">История</button>
+  </nav>
+
+  <main>
+    <section class="view" data-view="stock"></section>
+    <section class="view" data-view="ops" hidden></section>
+    <section class="view" data-view="warehouses" hidden></section>
+    <section class="view" data-view="history" hidden></section>
+  </main>
+
+  <aside class="drawer" data-drawer hidden></aside>
+  <div class="modal" data-modal hidden></div>
+  <div class="toasts" data-toasts aria-live="polite"></div>
+</body>
+</html>
